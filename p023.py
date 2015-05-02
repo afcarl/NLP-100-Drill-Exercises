@@ -12,10 +12,12 @@ from p020 import load_data
 
 def main():
     data = load_data()
-
-    pat = r'(?P<sep>=+)(?P<title>[^=]+)=+\n'
+ 
+    pat = r'(?P<sep>==+)(?P<title>.+?)(?P=sep)'
+    
     for m in re.finditer(pat, data):
-        print('{},{}'.format(m.group('title').strip().encode('utf8'), len(m.group('sep'))))
+        print('{},{}'.format(m.group('title').strip().encode('utf8'),
+                             len(m.group('sep'))-1))
 
     return 0
 

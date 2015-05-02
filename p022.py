@@ -13,7 +13,7 @@ from p020 import load_data
 def main():
     data = load_data()
 
-    pat = r'\[\[Category:(?P<name>[^\]\|]*)\|*[^\]]*\]\]'
+    pat = r'\[\[Category:(?P<name>.+?)(\|.*)?\]\]'
     for m in re.finditer(pat, data):
         print(m.group('name').encode('utf8'))
 
