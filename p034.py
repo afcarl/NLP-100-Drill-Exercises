@@ -25,7 +25,6 @@ def extract_nounphrases(data):
             if len(buff) == 2:  # <名詞>の
                 buff.append(term[u'surface'])
                 result.add(u''.join(buff))
-                continue
             buff = [term[u'surface'],]
     return result
 
